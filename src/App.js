@@ -29,7 +29,7 @@ function App() {
     const city = event.target.city_name.value;
     setCity(city);
     
-    axios.get('http://api.weatherapi.com/v1/current.json?key=4f2aa6c0f2bf4bc186151423232205&q='+city+'&aqi=no')
+    axios.get('https://api.weatherapi.com/v1/current.json?key=4f2aa6c0f2bf4bc186151423232205&q='+city+'&aqi=no')
     .then((res)=>[setDetails({temp:res.data.current.temp_c, humidity: res.data.current.humidity, cloud: res.data.current.cloud, wind_dir: res.data.current.wind_dir, condition: res.data.current.condition.text, wind_speed: res.data.current.wind_kph, img: res.data.current.condition.icon}),setCity({city:res.data.location.name, country: res.data.location.country})])
     .catch((err)=>console.log(err.message))
   }
